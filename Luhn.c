@@ -7,6 +7,13 @@ void luhn_check() {
     char cardNumber[32];
     printf("Enter card Number: ");
     scanf("%31s", cardNumber);
+    
+    for (int i = 0; i != '\0'; i++) {
+        if (cardNumber[i] < '0' || cardNumber[i] > '9') {
+            printf("Invalid Card Number");
+            return;
+        }
+    }
     printf("Card Number: %s\n", cardNumber);
 
     int lastIndex = strlen(cardNumber) - 1;
@@ -40,4 +47,5 @@ void luhn_check() {
 
 int main() {
     luhn_check();
+    return 0;
 }
