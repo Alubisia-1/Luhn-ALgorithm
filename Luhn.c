@@ -2,13 +2,17 @@
 #include <stdlib.h>
 #include <string.h>
 
+void card_type(char cardNumber[]) {
+  if (cardNumber[0] == '4') {
+    printf("Visa Card\n");
+  } else if (cardNumber[0] == '5' && cardNumber[1] >= '1' && cardNumber[1] <= '5') {
+    printf("Mastercard\n");
+  }
+}
 
-void luhn_check() {
-    char cardNumber[32];
-    printf("Enter card Number: ");
-    scanf("%31s", cardNumber);
-    
-    for (int i = 0; i != '\0'; i++) {
+
+void luhn_check(char cardNumber[]) {    
+    for (int i = 0; cardNumber[i] != '\0'; i++) {
         if (cardNumber[i] < '0' || cardNumber[i] > '9') {
             printf("Invalid Card Number");
             return;
@@ -38,14 +42,21 @@ void luhn_check() {
          doubleNext = !doubleNext;
     }
     if (sum % 10 == 0) {
-        printf("Valid Card Number;\n");
+        printf("Valid Card Number\n");
     }
     else {
-        printf("Invalid Card Number;");
+        printf("Invalid Card Number\n");
     }     
 }
 
 int main() {
-    luhn_check();
+  char cardNumber[32];
+  printf("Enter Card Number: ");
+  scanf("%31s", cardNumber);
+
+    
+    card_type(cardNumber); 
+    luhn_check(cardNumber);
+    
     return 0;
 }
