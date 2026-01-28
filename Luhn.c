@@ -32,7 +32,7 @@ void luhn_check(char cardNumber[]) {
         if (doubleNext == 1) {
             result = digit * 2;
             if (result > 9) {
-                result = result - 9;
+              result = result - 9;
             } 
             sum = sum + result;
         }
